@@ -26,4 +26,14 @@ version of this framework: the automatic detection of data loss on Android devic
 
 # Functioning
 
-[![Watch the video]()](img/VID_robo.mp4)
+<div align="center">
+<img src="/img/VID_robo.gif" height="483" width="272" align="middle">
+</div>
+
+<!-- 
+
+![Watch the video](img/VID_robo.gif)
+
+-->
+
+# How to use
