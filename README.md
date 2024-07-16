@@ -21,19 +21,25 @@ version of this framework: the automatic detection of data loss on Android devic
 
 
 # Architecture
-
+<div align="center">
+<img src="/img/architecture.png" height=" 548" width="985" align="middle">
+</div>
 
 
 # Functioning
+<!-- 
+
+![Watch the video](img/VID_robo.gif)
+[![Watch the video](img/video.png)](img/VID_20240626_181805.mp4)
 
 <div align="center">
 <img src="/img/VID_robo.gif" height="483" width="272" align="middle">
 </div>
 
-<!-- 
-
-![Watch the video](img/VID_robo.gif)
-
 -->
+
+https://github.com/user-attachments/assets/e42c7389-e01f-4bbc-a9e8-e2a2a7cfca38
+
+
 
 # How to use
