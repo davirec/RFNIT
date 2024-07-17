@@ -10,8 +10,8 @@ The Robotic Framework for Non-Invasive Testing (RFNIT) is a platform that simpli
 an interface that mimics common user gestures and interactions. These actions use image processing to identify elements 
 on the smartphone screen and interact effectively.
 
-The \tname{} innovates this methodology by positioning the smartphone on the robot itself and fixing the touch pen 
-and camera in a static position on the test bench, as shown in Figure~\ref{robo}. This enables the rotation of the 
+The RFNIT innovates this methodology by positioning the smartphone on the robot itself and fixing the touch pen 
+and camera in a static position on the test bench, as shown in Figure 1. This enables the rotation of the 
 device to change the screen orientation, approach NFC cards, and perform complex gestures, such as "chop twice for 
 flashlight" and "twist for camera."
 
@@ -22,7 +22,7 @@ version of this framework: the automatic detection of data loss on Android devic
 
 # Architecture
 <div align="center">
-<img src="/img/architecture.png" height=" 548" width="985" align="middle">
+<img src="/img/architecture.png" height=" 354" width="690" align="middle">
 </div>
 
 
