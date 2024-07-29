@@ -11,7 +11,7 @@ robot = RobotCobotta(parameter, smartphone, arm, touch_pen,100)
 robot.touch(-30, -90)
 robot.touch(230, 290)
 robot.touch(30, 90)
-
+robot.double_rotation()
 robot.touch(70, 40)
 
 robot.touch(10, 130)
