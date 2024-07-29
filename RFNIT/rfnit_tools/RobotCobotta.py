@@ -11,14 +11,22 @@ class RobotCobotta(RFNIT):
         self.arm1 = self.ctrl.AddRobot("RC8", "")
         self.arm1.Execute("TakeArm", 0)
         self.arm1.Execute("ExtSpeed", speed)
+        self.p_center = (312.7559, -81.32734, 198.3072, -90.01537, 89.99992, -90.01537, 257)
+        self.p_home = (131.579, -45, 300, 180, 90, -180, 261)
 
     def touch(self, x, y):
         print(f"RobotA touch at ({x}, {y})")
-        p2 = "P(312.7559, -81.32734, 198.3072, -90.01537, 89.99992, -90.01537, 257)"
-
-        self.arm1.Execute("Approach", [1, p2, "@0 30"])
-        self.arm1.Move(1, f"@P {p2}", "")
-        self.arm1.Execute("Approach", [1, p2, "@0 30"])
+        if x > self.smartphone_width or y > self.smartphone_height:
+            self.print_red(f"Coordinate outside the smartphone area: {self.smartphone_width} x {self.smartphone_height}")
+            self.print_red(f" x={x}, y={y}")
+            return
+        if x < 0 or y < 0:
+            self.print_red(f"Negative value x={x}, y={y}")
+            return
+        target = (312.7559, -81.32734+self.smartphone_width/2-x, 198.3072-self.smartphone_height/2+y, -90.01537, 89.99992, -90.01537, 257)
+        self.arm1.Execute("Approach", [1, f"P{target}", "@0 30"])
+        self.arm1.Move(1, f"@P P{target}", "")
+        self.arm1.Execute("Approach", [1, f"P{target}", "@0 30"])
 
     def swipe(self, start_x, start_y, end_x, end_y):
         print(f"RobotA swipe from ({start_x}, {start_y}) to ({end_x}, {end_y})")
@@ -57,8 +65,7 @@ class RobotCobotta(RFNIT):
         print("RobotA calibration")
 
     def home(self):
-        p1 = "P(131.579, -45, 300, 180, 90, -180, 261)"
-        self.arm1.Move(1, f"@P {p1}", "")
+        self.arm1.Move(1, f"@P P{self.p_home}", "")
 
     # meio do smartphone tocando
     #

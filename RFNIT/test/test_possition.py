@@ -8,7 +8,13 @@ touch_pen = {"touch_pen_offset_x": 78, "touch_pen_offset_y": 160,"touch_pen_offs
 
 robot = RobotCobotta(parameter, smartphone, arm, touch_pen,100)
 
+robot.touch(-30, -90)
+robot.touch(230, 290)
 robot.touch(30, 90)
+
+robot.touch(70, 40)
+
+robot.touch(10, 130)
 
 robot.home()
 

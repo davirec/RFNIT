@@ -41,6 +41,9 @@ class RFNIT(ABC):
         print("Obtendo dimensões do dispositivo")
         # Implementação para obter dimensões do dispositivo
 
+    def print_red(self, text):
+        print('\x1b[6;30;43m' + text + '\x1b[0m')
+
     # Métodos que precisam ser implementados por cada robô específico
     @abstractmethod
     def touch(self, x, y):
