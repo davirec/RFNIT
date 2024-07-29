@@ -65,3 +65,7 @@ class RFNIT(ABC):
     @abstractmethod
     def calibration(self):
         pass
+
+    @abstractmethod
+    def home(self):
+        pass
