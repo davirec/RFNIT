@@ -2,7 +2,8 @@ import win32com.client
 
 
 eng = win32com.client.Dispatch("CAO.CaoEngine")
-ctrl = eng.Workspaces(0).AddController("RC8", "caoProv.DENSO.RC8", "", r"WPJ=C:\Users\davi\Documents\test_cobotta\test_cobotta.WPJ")
+# adicionar a chave do VRC e colocar o mesmo nome do projeto que está aberto no wincaps3
+ctrl = eng.Workspaces(0).AddController("RC8", "caoProv.DENSO.RC8", "", r"WPJ=C:\projetos_git\RFNIT\wincaps_cobotta\wincaps_cobotta.WPJ")
 Arm1 = ctrl.AddRobot("RC8", "")
 
 
