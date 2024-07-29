@@ -1,0 +1,97 @@
+'!TITLE "Robot program"
+
+Dim mPositions(2) As Position
+Dim posi_smart_00 AS Position
+Dim posi_smart_nn AS Position
+
+Sub Main
+	TakeArm Keep = 1
+	Dim ddd As Single
+	ExtSpeed 100
+	posi_smart_00  = P(312.7559,	-110.6938,	270.8528,	-62.16542,	89.99995,	-62.16543)
+	posi_smart_nn  = P(312.7559,	-53.87764,	128.2277,	-60.27183,	89.99995,	-62.16543)
+	
+	'ddd = test_position(5)
+	'Call test
+	
+	Call home
+	Call scrollUP
+	Delay 2000
+	Call scrollDown
+
+	Move L, posi_smart_00
+	Move L, posi_smart_nn
+
+	Call home
+	
+End Sub
+
+
+'Function test_position(value As Single) As Single
+'
+'	Approach P, P2,@0 30
+'	PrintMSG CurPos
+'	Move P, @P P2
+'	Approach L, P2,@0 30
+'	Move P, @P P1	
+'	PrintMsg P2
+'
+'End Function
+
+'283,8 - 128,11 = 155,69 z
+'-40,50 -(- 110,69) = 70,19
+
+'position 10 quina direita inferior
+'position 11 quina esquerda superior
+
+Sub home
+	Move P, @P P1
+	PrintMsg "Home"	
+End Sub
+
+
+Sub touch(x As Integer, y As Integer)
+	
+	Approach P, P2,@0 30
+	PrintMSG CurPos
+	'Move P, @P P1
+	Move P, @P P2
+	Approach L, P2,@0 30
+	Move P, @P P1	
+	PrintMsg P2
+End Sub
+
+
+Sub scrollUP
+	Dim posi_start AS Position
+	Dim posi_end AS Position
+
+	posi_start = P(312.7559,	-81.32734,	151.5203,	-90.09206,	89.99992,	-90.09206, 257)
+	posi_end = P(312.7559,	-81.32734,	257.6063,	-90.05091,	89.99992,	-90.05092, 257)
+
+	Approach P, posi_start,@0 30
+	Move L, @P posi_start
+	Move L, @P posi_end
+	Approach L, posi_end,@0 30
+	Approach L, P2,@0 30
+	PrintMsg "scrollUP"
+End Sub
+
+
+Sub scrollDown
+	Dim posi_start AS Position
+	Dim posi_end AS Position
+
+	posi_start = P(312.7559,	-81.32734,	257.6063,	-90.05091,	89.99992,	-90.05092, 257)
+	posi_end = P(312.7559,	-81.32734,	151.5203,	-90.09206,	89.99992,	-90.09206, 257)
+
+	Approach P, posi_start,@0 30
+	Move L, @P posi_start
+	Move L, @P posi_end
+	Approach L, posi_end,@0 30
+	Approach L, P2,@0 30
+	PrintMsg "scrollDown"
+End Sub
+
+
+
