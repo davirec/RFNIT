@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class RFNIT(ABC):
-    def __init__(self, name, smartphone, arm, touch_pen):
+    def __init__(self, name, smartphone, arm, touch_pen, p_center, p_home, p_camera):
         # init robot
         self.name = name
         self.smartphone_width = smartphone.get('smartphone_width')
@@ -15,6 +15,17 @@ class RFNIT(ABC):
         self.touch_pen_offset_x = touch_pen.get('touch_pen_offset_x')
         self.touch_pen_offset_y = touch_pen.get('touch_pen_offset_y')
         self.touch_pen_offset_z = touch_pen.get('touch_pen_offset_z')
+
+        self.p_center = list(p_center)
+        self.p_home = list(p_home)
+        self.p_camera = list(p_camera)
+        self.initial_coordinate = self.__initial_coordinate_smartphone()
+
+    def __initial_coordinate_smartphone(self):
+        target = self.p_center.copy()
+        target[1] += self.smartphone_width / 2
+        target[2] -= self.smartphone_height / 2
+        return target
 
     def convert_to_robot_coords(self, screen_x, screen_y):
         # Calculates the displacement in millimeters relative to the center of the screen
@@ -42,7 +53,15 @@ class RFNIT(ABC):
         # Implementação para obter dimensões do dispositivo
 
     def print_red(self, text):
+        print('\x1b[6;30;41m' + text + '\x1b[0m')
+
+    def print_yellow(self, text):
         print('\x1b[6;30;43m' + text + '\x1b[0m')
+
+    def print_green(self, text):
+        print('\x1b[6;30;42m' + text + '\x1b[0m')
+    def print_blue(self, text):
+        print('\x1b[6;30;44m' + text + '\x1b[0m')
 
     # Métodos que precisam ser implementados por cada robô específico
     @abstractmethod
