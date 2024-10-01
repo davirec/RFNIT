@@ -37,9 +37,13 @@ version of this framework: the automatic detection of data loss on Android devic
 </div>
 
 -->
-
+## Robot COBOTTA
 https://github.com/user-attachments/assets/e42c7389-e01f-4bbc-a9e8-e2a2a7cfca38
 
+
+
+## Robot Denso VS50
+https://github.com/user-attachments/assets/da46b8cc-8971-4965-8017-1bca81001a2d
 
 
 # How to use
